@@ -23,6 +23,8 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             InitializeComponent();
         }
 
+        #region Eventos
+        #region Click
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,7 +75,9 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
                 labelResultado.Text = "Erro ao cadastrar compromisso! Valores inválidos.";
             }
         }
+        #endregion
 
+        #region Changed
         private void rbLocal_CheckedChanged(object sender, EventArgs e)
         {
             if (rbLocal.Checked)
@@ -98,29 +102,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             }
         }
 
-        private void LimparCampos()
-        {
-            textBoxAssunto.Text = "";
-            rbLink.Checked = false;
-            rbLocal.Checked = false;
-            textBoxLocal.Text = "";
-            textBoxLink.Text = "";
-            maskedTextBoxData.Text = "";
-            maskedTextBoxHoraInicio.Text = "";
-            maskedTextBoxHoraFim.Text = "";
-            comboBoxContatos.SelectedIndex = 0;
-        }
-
-        private void TelaCadastrarCompromisso_Load(object sender, EventArgs e)
-        {
-            List<Contato> contatos = controladorContato.SelecionarTodos();
-            foreach (Contato contato in contatos)
-            {
-                comboBoxContatos.Items.Add(contato.Id);
-            }
-            rbLocal.Checked = true;
-        }
-
         private void checkBoxContato_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxContato.Checked)
@@ -134,5 +115,36 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
                 comboBoxContatos.Enabled = false;
             }
         }
+
+        #endregion
+
+        #region Load
+        private void TelaCadastrarCompromisso_Load(object sender, EventArgs e)
+        {
+            List<Contato> contatos = controladorContato.SelecionarTodos();
+            foreach (Contato contato in contatos)
+            {
+                comboBoxContatos.Items.Add(contato.Id);
+            }
+            rbLocal.Checked = true;
+        }
+        #endregion
+
+        #endregion
+
+        #region Métodos Privados
+        private void LimparCampos()
+        {
+            textBoxAssunto.Text = "";
+            rbLink.Checked = false;
+            rbLocal.Checked = false;
+            textBoxLocal.Text = "";
+            textBoxLink.Text = "";
+            maskedTextBoxData.Text = "";
+            maskedTextBoxHoraInicio.Text = "";
+            maskedTextBoxHoraFim.Text = "";
+            comboBoxContatos.SelectedIndex = 0;
+        }
+        #endregion
     }
 }

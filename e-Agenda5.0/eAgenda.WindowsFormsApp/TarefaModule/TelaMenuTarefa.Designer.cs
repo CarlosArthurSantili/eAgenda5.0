@@ -126,7 +126,9 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.labelMenuTarefa);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaMenuTarefa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaMenuTarefa";

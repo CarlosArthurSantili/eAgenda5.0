@@ -73,6 +73,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Enabled = false;
             this.btnExcluir.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnExcluir.Location = new System.Drawing.Point(12, 199);
@@ -223,7 +224,9 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             this.Controls.Add(this.labelEditarTarefa);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaExcluirTarefa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaExcluirTarefa";

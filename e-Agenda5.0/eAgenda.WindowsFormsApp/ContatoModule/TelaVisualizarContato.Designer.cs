@@ -30,7 +30,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaVisualizarContato));
-            this.btnTodosContatos = new System.Windows.Forms.Button();
             this.dataGridViewContatos = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,24 +46,14 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.labelVisualizarContatos = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
+            this.comboBoxCargos = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnVisualizarTodos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContatos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetContato)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtContatos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnTodosContatos
-            // 
-            this.btnTodosContatos.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTodosContatos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnTodosContatos.Location = new System.Drawing.Point(12, 169);
-            this.btnTodosContatos.Name = "btnTodosContatos";
-            this.btnTodosContatos.Size = new System.Drawing.Size(126, 23);
-            this.btnTodosContatos.TabIndex = 13;
-            this.btnTodosContatos.TabStop = false;
-            this.btnTodosContatos.Text = "Todos Contatos";
-            this.btnTodosContatos.UseVisualStyleBackColor = true;
-            this.btnTodosContatos.Click += new System.EventHandler(this.btnTodosContatos_Click);
             // 
             // dataGridViewContatos
             // 
@@ -176,24 +165,57 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             this.labelVisualizarContatos.AutoSize = true;
             this.labelVisualizarContatos.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVisualizarContatos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelVisualizarContatos.Location = new System.Drawing.Point(289, 9);
+            this.labelVisualizarContatos.Location = new System.Drawing.Point(211, 9);
             this.labelVisualizarContatos.Name = "labelVisualizarContatos";
-            this.labelVisualizarContatos.Size = new System.Drawing.Size(163, 21);
+            this.labelVisualizarContatos.Size = new System.Drawing.Size(240, 21);
             this.labelVisualizarContatos.TabIndex = 10;
-            this.labelVisualizarContatos.Text = "Visualizar Contatos";
+            this.labelVisualizarContatos.Text = "Visualizando Todos Contatos";
             // 
-            // btnCancelar
+            // btnVoltar
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCancelar.Location = new System.Drawing.Point(579, 169);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 9;
-            this.btnCancelar.TabStop = false;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnVoltar.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVoltar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVoltar.Location = new System.Drawing.Point(580, 171);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Size = new System.Drawing.Size(75, 23);
+            this.btnVoltar.TabIndex = 9;
+            this.btnVoltar.TabStop = false;
+            this.btnVoltar.Text = "Voltar";
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
+            // 
+            // comboBoxCargos
+            // 
+            this.comboBoxCargos.FormattingEnabled = true;
+            this.comboBoxCargos.Location = new System.Drawing.Point(54, 173);
+            this.comboBoxCargos.Name = "comboBoxCargos";
+            this.comboBoxCargos.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCargos.TabIndex = 13;
+            this.comboBoxCargos.SelectedIndexChanged += new System.EventHandler(this.comboBoxCargos_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(13, 178);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Cargo";
+            // 
+            // btnVisualizarTodos
+            // 
+            this.btnVisualizarTodos.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVisualizarTodos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnVisualizarTodos.Location = new System.Drawing.Point(300, 171);
+            this.btnVisualizarTodos.Name = "btnVisualizarTodos";
+            this.btnVisualizarTodos.Size = new System.Drawing.Size(91, 23);
+            this.btnVisualizarTodos.TabIndex = 15;
+            this.btnVisualizarTodos.TabStop = false;
+            this.btnVisualizarTodos.Text = "Visualizar Todos";
+            this.btnVisualizarTodos.UseVisualStyleBackColor = true;
+            this.btnVisualizarTodos.Click += new System.EventHandler(this.btnVisualizarTodos_Click);
             // 
             // TelaVisualizarContato
             // 
@@ -201,11 +223,15 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(666, 204);
-            this.Controls.Add(this.btnTodosContatos);
+            this.Controls.Add(this.btnVisualizarTodos);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxCargos);
             this.Controls.Add(this.dataGridViewContatos);
             this.Controls.Add(this.labelVisualizarContatos);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnVoltar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaVisualizarContato";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaVisualizarContato";
@@ -219,11 +245,9 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnTodosContatos;
         private System.Windows.Forms.DataGridView dataGridViewContatos;
         private System.Windows.Forms.Label labelVisualizarContatos;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnVoltar;
         private System.Data.DataSet dataSetContato;
         private System.Data.DataTable dtContatos;
         private System.Data.DataColumn dataColumn1;
@@ -238,5 +262,8 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
         private System.Data.DataColumn dataColumn4;
         private System.Data.DataColumn dataColumn5;
         private System.Data.DataColumn dataColumn6;
+        private System.Windows.Forms.ComboBox comboBoxCargos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnVisualizarTodos;
     }
 }

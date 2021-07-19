@@ -20,6 +20,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -48,6 +49,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 case "Prioridade Alta": comboBoxPrioridade.SelectedIndex = 2; break;
             }
             numericUpDownPercentual.Value = tarefaSelecionada.Percentual;
+            btnEditar.Enabled = true;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -74,5 +76,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 labelResultado.Text = "Erro ao editar tarefa! Tente novamente";
             }
         }
+        #endregion
     }
 }

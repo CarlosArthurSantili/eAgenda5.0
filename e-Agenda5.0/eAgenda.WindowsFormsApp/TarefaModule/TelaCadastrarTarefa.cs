@@ -21,6 +21,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void TelaCadastrarTarefa_FormClosed(object sender, FormClosedEventArgs e)
         {
             TelaMenuTarefa.ActiveForm.Visible = true;
@@ -56,5 +57,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
         {
             comboBoxPrioridade.SelectedIndex = 0;
         }
+        #endregion
+
     }
 }

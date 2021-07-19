@@ -22,11 +22,38 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void TelaVisualizarCompromisso_Load(object sender, EventArgs e)
         {
             PreencherDataGridTodosCompromissos();
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+
+        private void btnTodosCompromissos_Click(object sender, EventArgs e)
+        {
+            PreencherDataGridTodosCompromissos();
+            labelVisualizarCompromissos.Text = "Visualizando Todos Compromissos";
+        }
+
+        private void btnCompromissosPassados_Click(object sender, EventArgs e)
+        {
+            PreencherDataGridCompromissosPassados();
+            labelVisualizarCompromissos.Text = "Visualizando Compromissos Passados";
+        }
+
+        private void btnCompromissosFuturos_Click(object sender, EventArgs e)
+        {
+            PreencherDataGridCompromissosFuturos();
+            labelVisualizarCompromissos.Text = "Visualizando Compromissos Futuros";
+        }
+        #endregion
+
+        #region Métodos Privados
         private void PreencherDataGridTodosCompromissos()
         {
             dtCompromissos.Clear();
@@ -69,25 +96,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
-
-        private void btnTodosCompromissos_Click(object sender, EventArgs e)
-        {
-            PreencherDataGridTodosCompromissos();
-        }
-
-        private void btnCompromissosPassados_Click(object sender, EventArgs e)
-        {
-            PreencherDataGridCompromissosPassados();
-        }
-
-        private void btnCompromissosFuturos_Click(object sender, EventArgs e)
-        {
-            PreencherDataGridCompromissosFuturos();
-        }
+        #endregion
     }
 }

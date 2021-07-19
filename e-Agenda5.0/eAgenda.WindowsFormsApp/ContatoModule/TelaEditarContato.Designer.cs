@@ -170,6 +170,7 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             // 
             // btnEditar
             // 
+            this.btnEditar.Enabled = false;
             this.btnEditar.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnEditar.Location = new System.Drawing.Point(5, 258);
@@ -234,7 +235,9 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             this.Controls.Add(this.labelEditarContato);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaEditarContato";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaEditarContato";

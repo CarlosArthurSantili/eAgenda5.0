@@ -20,6 +20,7 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -56,6 +57,22 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             btnExcluir.Enabled = true;
         }
 
+        private void TelaExcluirContato_Load(object sender, EventArgs e)
+        {
+            ListarComboBoxContatos();
+        }
+
+        private void comboBoxContatos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idContatoSelecionado = Convert.ToInt32(comboBoxContatos.SelectedItem);
+            Contato contatoSelecionado = controladorContato.SelecionarPorId(idContatoSelecionado);
+            MostrarValoresContato(contatoSelecionado);
+            btnExcluir.Enabled = true;
+        }
+
+        #endregion
+
+        #region Métodos Privados
         private void ListarComboBoxContatos()
         {
             comboBoxContatos.Items.Clear();
@@ -76,18 +93,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             comboBoxContatos.SelectedIndex = 0;
         }
 
-        private void TelaExcluirContato_Load(object sender, EventArgs e)
-        {
-            ListarComboBoxContatos();
-        }
-
-        private void comboBoxContatos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int idContatoSelecionado = Convert.ToInt32(comboBoxContatos.SelectedItem);
-            Contato contatoSelecionado = controladorContato.SelecionarPorId(idContatoSelecionado);
-            MostrarValoresContato(contatoSelecionado);
-        }
-
         private void MostrarValoresContato(Contato contatoSelecionado)
         {
             textBoxNome.Text = contatoSelecionado.Nome;
@@ -96,5 +101,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             textBoxEmpresa.Text = contatoSelecionado.Empresa;
             textBoxCargo.Text = contatoSelecionado.Cargo;
         }
+        #endregion
     }
 }

@@ -23,6 +23,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             
         }
 
+        #region Eventos
         private void TelaVisualizarTarefa_Load(object sender, EventArgs e)
         {
             labelVisualizarTarefas.Text = "Visualizando Todas Tarefas";
@@ -41,6 +42,20 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             PreencherDataGridTarefasConcluidas();
         }
 
+        private void btnTarefasPendentes_Click(object sender, EventArgs e)
+        {
+            labelVisualizarTarefas.Text = "Visualizando Tarefas Pendentes";
+            PreencherDataGridTarefasPendentes();
+        }
+
+        private void btnTodasTarefas_Click(object sender, EventArgs e)
+        {
+            labelVisualizarTarefas.Text = "Visualizando Todas Tarefas";
+            PreencherDataGridTodasTarefas();
+        }
+        #endregion
+
+        #region Métodos Privados
         private void PreencherDataGridTarefasConcluidas()
         {
             dtTarefasConcluidas.Clear();
@@ -60,12 +75,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 dtTarefasConcluidas.Rows.Add(registro);
                 dataGridViewTarefas.DataMember = "TarefasConcluidas";
             }
-        }
-
-        private void btnTarefasPendentes_Click(object sender, EventArgs e)
-        {
-            labelVisualizarTarefas.Text = "Visualizando Tarefas Pendentes";
-            PreencherDataGridTarefasPendentes();
         }
 
         private void PreencherDataGridTarefasPendentes()
@@ -88,12 +97,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             }
         }
 
-        private void btnTodasTarefas_Click(object sender, EventArgs e)
-        {
-            labelVisualizarTarefas.Text = "Visualizando Todas Tarefas";
-            PreencherDataGridTodasTarefas();
-        }
-
         private void PreencherDataGridTodasTarefas()
         {
             dtTarefas.Clear();
@@ -114,5 +117,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 dataGridViewTarefas.DataMember = "Tarefas";
             }
         }
+        #endregion
     }
 }

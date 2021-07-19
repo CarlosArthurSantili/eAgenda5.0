@@ -189,6 +189,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             // btnExcluir
             // 
+            this.btnExcluir.Enabled = false;
             this.btnExcluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnExcluir.Location = new System.Drawing.Point(23, 320);
             this.btnExcluir.Name = "btnExcluir";
@@ -221,7 +222,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.rbLink.TabStop = true;
             this.rbLink.Text = "Link";
             this.rbLink.UseVisualStyleBackColor = true;
-           
             // 
             // rbLocal
             // 
@@ -241,7 +241,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.cbContato.AutoSize = true;
             this.cbContato.Enabled = false;
             this.cbContato.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbContato.Location = new System.Drawing.Point(22, 288);
+            this.cbContato.Location = new System.Drawing.Point(22, 286);
             this.cbContato.Name = "cbContato";
             this.cbContato.Size = new System.Drawing.Size(65, 17);
             this.cbContato.TabIndex = 120;
@@ -284,7 +284,9 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnExcluir);
             this.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaExcluirCompromisso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaExcluirCompromisso";

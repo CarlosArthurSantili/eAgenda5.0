@@ -269,7 +269,9 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.Controls.Add(this.labelCadastrarCompromisso);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCadastrar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaCadastrarCompromisso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaCadastrarCompromisso";

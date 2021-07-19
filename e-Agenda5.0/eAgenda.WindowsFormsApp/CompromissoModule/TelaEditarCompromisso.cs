@@ -23,6 +23,8 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             InitializeComponent();
         }
 
+        #region Eventos
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             int idCompromissoSelecionado = Convert.ToInt32(comboBoxCompromissos.SelectedItem);
@@ -51,27 +53,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             }
         }
 
-        private void ObterValoresCompromisso(Compromisso compromissoSelecionado)
-        {
-            compromissoSelecionado.Assunto = textBoxAssunto.Text;
-            compromissoSelecionado.Local = textBoxLocal.Text;
-            compromissoSelecionado.Link = textBoxLink.Text;
-            compromissoSelecionado.Data = Convert.ToDateTime(maskedTextBoxData.Text);
-
-            string[] strHoraInicio = maskedTextBoxHoraInicio.Text.Split(':');
-            compromissoSelecionado.HoraInicio = new TimeSpan(int.Parse(strHoraInicio[0]), int.Parse(strHoraInicio[1]), 0);
-
-            string[] strHoraFim = maskedTextBoxHoraFim.Text.Split(':');
-            compromissoSelecionado.HoraTermino = new TimeSpan(int.Parse(strHoraFim[0]), int.Parse(strHoraFim[1]), 0);
-
-            compromissoSelecionado.Contato = null;
-            if (comboBoxContatos.SelectedItem != null)
-            {
-                int idContato = Convert.ToInt32(comboBoxContatos.SelectedItem);
-                compromissoSelecionado.Contato = controladorContato.SelecionarPorId(idContato);
-            }
-        }
-
         private void TelaEditarCompromisso_Load(object sender, EventArgs e)
         {
             ListarComboBoxCompromissos();
@@ -81,68 +62,12 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             rbLocal.Checked = true;
         }
 
-        private void ListarComboBoxCompromissos()
-        {
-            List<Compromisso> compromissos = controladorCompromisso.SelecionarTodos();
-            foreach (Compromisso compromisso in compromissos)
-            {
-                comboBoxCompromissos.Items.Add(compromisso.Id);
-            }
-        }
-
-        private void ListarComboBoxContatos()
-        {
-            List<Contato> contatos = controladorContato.SelecionarTodos();
-            foreach (Contato contato in contatos)
-            {
-                comboBoxContatos.Items.Add(contato.Id);
-            }
-        }
-
         private void comboBoxCompromissos_SelectedIndexChanged(object sender, EventArgs e)
         {
             int idCompromissoSelecionada = Convert.ToInt32(comboBoxCompromissos.SelectedItem);
             Compromisso compromissoSelecionado = controladorCompromisso.SelecionarPorId(idCompromissoSelecionada);
             MostrarValoresCompromisso(compromissoSelecionado);
-        }
-
-        private void MostrarValoresCompromisso(Compromisso compromissoSelecionado)
-        {
-            if (compromissoSelecionado.Local == "Remoto")
-            {
-                rbLocal.Checked = false;
-                rbLink.Checked = true;
-            }
-            else
-            {
-                rbLocal.Checked = true;
-                rbLink.Checked = false;
-            }
-
-            textBoxAssunto.Text = compromissoSelecionado.Assunto;
-            textBoxLocal.Text = compromissoSelecionado.Local;
-            textBoxLink.Text = compromissoSelecionado.Link;
-            maskedTextBoxData.Text = compromissoSelecionado.Data.ToShortDateString();
-            maskedTextBoxHoraInicio.Text = compromissoSelecionado.HoraInicio.ToString();
-            maskedTextBoxHoraFim.Text = compromissoSelecionado.HoraTermino.ToString();
-            if (compromissoSelecionado.Contato != null)
-                comboBoxContatos.SelectedItem = compromissoSelecionado.Contato.Id;
-            else
-                comboBoxContatos.SelectedItem = null;
-        }
-
-        private void LimparCampos()
-        {
-            comboBoxCompromissos.SelectedIndex = 0;
-            textBoxAssunto.Text = "";
-            rbLink.Checked = false;
-            rbLocal.Checked = false;
-            textBoxLocal.Text = "";
-            textBoxLink.Text = "";
-            maskedTextBoxData.Text = "";
-            maskedTextBoxHoraInicio.Text = "";
-            maskedTextBoxHoraFim.Text = "";
-            comboBoxContatos.SelectedIndex = 0;
+            btnEditar.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -197,5 +122,88 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             else
                 checkBoxContato.Checked = false;
         }
+
+        #endregion
+
+        #region Métodos Privados
+
+        private void MostrarValoresCompromisso(Compromisso compromissoSelecionado)
+        {
+            if (compromissoSelecionado.Local == "Remoto")
+            {
+                rbLocal.Checked = false;
+                rbLink.Checked = true;
+            }
+            else
+            {
+                rbLocal.Checked = true;
+                rbLink.Checked = false;
+            }
+
+            textBoxAssunto.Text = compromissoSelecionado.Assunto;
+            textBoxLocal.Text = compromissoSelecionado.Local;
+            textBoxLink.Text = compromissoSelecionado.Link;
+            maskedTextBoxData.Text = compromissoSelecionado.Data.ToShortDateString();
+            maskedTextBoxHoraInicio.Text = compromissoSelecionado.HoraInicio.ToString();
+            maskedTextBoxHoraFim.Text = compromissoSelecionado.HoraTermino.ToString();
+            if (compromissoSelecionado.Contato != null)
+                comboBoxContatos.SelectedItem = compromissoSelecionado.Contato.Id;
+            else
+                comboBoxContatos.SelectedItem = null;
+        }
+
+        private void ObterValoresCompromisso(Compromisso compromissoSelecionado)
+        {
+            compromissoSelecionado.Assunto = textBoxAssunto.Text;
+            compromissoSelecionado.Local = textBoxLocal.Text;
+            compromissoSelecionado.Link = textBoxLink.Text;
+            compromissoSelecionado.Data = Convert.ToDateTime(maskedTextBoxData.Text);
+
+            string[] strHoraInicio = maskedTextBoxHoraInicio.Text.Split(':');
+            compromissoSelecionado.HoraInicio = new TimeSpan(int.Parse(strHoraInicio[0]), int.Parse(strHoraInicio[1]), 0);
+
+            string[] strHoraFim = maskedTextBoxHoraFim.Text.Split(':');
+            compromissoSelecionado.HoraTermino = new TimeSpan(int.Parse(strHoraFim[0]), int.Parse(strHoraFim[1]), 0);
+
+            compromissoSelecionado.Contato = null;
+            if (comboBoxContatos.SelectedItem != null)
+            {
+                int idContato = Convert.ToInt32(comboBoxContatos.SelectedItem);
+                compromissoSelecionado.Contato = controladorContato.SelecionarPorId(idContato);
+            }
+        }
+
+        private void LimparCampos()
+        {
+            comboBoxCompromissos.SelectedIndex = 0;
+            textBoxAssunto.Text = "";
+            rbLink.Checked = false;
+            rbLocal.Checked = false;
+            textBoxLocal.Text = "";
+            textBoxLink.Text = "";
+            maskedTextBoxData.Text = "";
+            maskedTextBoxHoraInicio.Text = "";
+            maskedTextBoxHoraFim.Text = "";
+            comboBoxContatos.SelectedIndex = 0;
+        }
+
+        private void ListarComboBoxCompromissos()
+        {
+            List<Compromisso> compromissos = controladorCompromisso.SelecionarTodos();
+            foreach (Compromisso compromisso in compromissos)
+            {
+                comboBoxCompromissos.Items.Add(compromisso.Id);
+            }
+        }
+
+        private void ListarComboBoxContatos()
+        {
+            List<Contato> contatos = controladorContato.SelecionarTodos();
+            foreach (Contato contato in contatos)
+            {
+                comboBoxContatos.Items.Add(contato.Id);
+            }
+        }
+        #endregion
     }
 }

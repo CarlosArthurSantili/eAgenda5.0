@@ -8,6 +8,7 @@ namespace eAgenda.Controladores.ContatoModule
 {
     public class ControladorContato : Controlador<Contato>
     {
+
         private const string sqlInserirContato =
             @"INSERT INTO TBCONTATO 
 	                (
@@ -43,6 +44,19 @@ namespace eAgenda.Controladores.ContatoModule
                         TBCONTATO
                     WHERE 
                         ID = @ID";
+
+        private const string sqlSelecionarContatoPorCargo =
+            @"SELECT
+                        [ID],
+		                [NOME], 
+		                [EMAIL], 
+		                [TELEFONE],
+                        [CARGO], 
+		                [EMPRESA]
+	                FROM
+                        TBCONTATO
+                    WHERE 
+                        CARGO = @CARGO";
 
         private const string sqlSelecionarContatoPorId =
             @"SELECT
@@ -130,6 +144,13 @@ namespace eAgenda.Controladores.ContatoModule
             return Db.GetAll(sqlSelecionarTodosContatos, ConverterEmContato);
         }
 
+        //refatorar...
+        /*
+        public List<Contato> SelecionarTodosCargoEspecifico()
+        {
+            return Db.Get(sqlSelecionarContatoPorCargo, ConverterEmContato, AdicionarParametro("CARGO", cargo));
+        }
+        */
         public List<GrupoContato> SelecionarContatosAgrupados(Func<Contato, string> campo)
         {
             var contatos = Db.GetAll(sqlSelecionarTodosContatos, ConverterEmContato);

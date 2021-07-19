@@ -165,6 +165,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             // btnEditar
             // 
+            this.btnEditar.Enabled = false;
             this.btnEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnEditar.Location = new System.Drawing.Point(22, 321);
             this.btnEditar.Name = "btnEditar";
@@ -243,7 +244,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             this.checkBoxContato.AutoSize = true;
             this.checkBoxContato.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.checkBoxContato.Location = new System.Drawing.Point(22, 285);
+            this.checkBoxContato.Location = new System.Drawing.Point(21, 287);
             this.checkBoxContato.Name = "checkBoxContato";
             this.checkBoxContato.Size = new System.Drawing.Size(65, 17);
             this.checkBoxContato.TabIndex = 103;
@@ -278,7 +279,9 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaEditarCompromisso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaEditarCompromisso";

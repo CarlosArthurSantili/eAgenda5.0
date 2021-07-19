@@ -20,6 +20,8 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             InitializeComponent();
         }
 
+        #region Eventos
+
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             string nome = textBoxNome.Text;
@@ -44,7 +46,15 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             }
         }
 
-        private void LimparCampos() 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
+        }
+        #endregion
+
+        #region Métodos Privados
+        private void LimparCampos()
         {
             textBoxNome.Text = "";
             textBoxEmail.Text = "";
@@ -52,11 +62,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             textBoxEmpresa.Text = "";
             textBoxCargo.Text = "";
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
+        #endregion
     }
 }

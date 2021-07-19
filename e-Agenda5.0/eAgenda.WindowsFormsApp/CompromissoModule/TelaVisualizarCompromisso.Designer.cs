@@ -61,6 +61,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             // btnTodosCompromissos
             // 
+            this.btnTodosCompromissos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnTodosCompromissos.Location = new System.Drawing.Point(12, 251);
             this.btnTodosCompromissos.Name = "btnTodosCompromissos";
             this.btnTodosCompromissos.Size = new System.Drawing.Size(126, 23);
@@ -203,14 +204,16 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             this.labelVisualizarCompromissos.AutoSize = true;
             this.labelVisualizarCompromissos.Font = new System.Drawing.Font("Berlin Sans FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVisualizarCompromissos.Location = new System.Drawing.Point(359, 20);
+            this.labelVisualizarCompromissos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelVisualizarCompromissos.Location = new System.Drawing.Point(321, 20);
             this.labelVisualizarCompromissos.Name = "labelVisualizarCompromissos";
-            this.labelVisualizarCompromissos.Size = new System.Drawing.Size(203, 21);
+            this.labelVisualizarCompromissos.Size = new System.Drawing.Size(280, 21);
             this.labelVisualizarCompromissos.TabIndex = 15;
-            this.labelVisualizarCompromissos.Text = "Visualizar Compromissos";
+            this.labelVisualizarCompromissos.Text = "Visualizando Todos Compromissos";
             // 
             // btnCancelar
             // 
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCancelar.Location = new System.Drawing.Point(781, 251);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -222,6 +225,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             // btnCompromissosPassados
             // 
+            this.btnCompromissosPassados.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCompromissosPassados.Location = new System.Drawing.Point(261, 251);
             this.btnCompromissosPassados.Name = "btnCompromissosPassados";
             this.btnCompromissosPassados.Size = new System.Drawing.Size(131, 23);
@@ -233,6 +237,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             // 
             // btnCompromissosFuturos
             // 
+            this.btnCompromissosFuturos.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCompromissosFuturos.Location = new System.Drawing.Point(517, 251);
             this.btnCompromissosFuturos.Name = "btnCompromissosFuturos";
             this.btnCompromissosFuturos.Size = new System.Drawing.Size(126, 23);
@@ -255,8 +260,10 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             this.Controls.Add(this.labelVisualizarCompromissos);
             this.Controls.Add(this.btnCancelar);
             this.Font = new System.Drawing.Font("Berlin Sans FB", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaVisualizarCompromisso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaVisualizarCompromisso";

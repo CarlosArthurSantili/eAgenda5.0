@@ -17,6 +17,9 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Eventos
+        /// </summary>
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -33,7 +36,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             telaSelecionada.Show();
         }
 
-
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -48,6 +50,12 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             TelaExcluirCompromisso telaSelecionada = new TelaExcluirCompromisso();
             telaSelecionada.Closed += (s, args) => this.Show();
             telaSelecionada.Show();
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose();
         }
     }
 }

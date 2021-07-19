@@ -23,6 +23,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -34,31 +35,7 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             int idCompromissoSelecionada = Convert.ToInt32(comboBoxCompromissos.SelectedItem);
             Compromisso compromissoSelecionado = controladorCompromisso.SelecionarPorId(idCompromissoSelecionada);
             MostrarValoresCompromisso(compromissoSelecionado);
-        }
-
-        private void MostrarValoresCompromisso(Compromisso compromissoSelecionado)
-        {
-            if (compromissoSelecionado.Local == "Remoto")
-            {
-                rbLocal.Checked = false;
-                rbLink.Checked = true;
-            }
-            else
-            {
-                rbLocal.Checked = true;
-                rbLink.Checked = false;
-            }
-
-            textBoxAssunto.Text = compromissoSelecionado.Assunto;
-            textBoxLocal.Text = compromissoSelecionado.Local;
-            textBoxLink.Text = compromissoSelecionado.Link;
-            maskedTextBoxData.Text = compromissoSelecionado.Data.ToShortDateString();
-            maskedTextBoxHoraInicio.Text = compromissoSelecionado.HoraInicio.ToString();
-            maskedTextBoxHoraFim.Text = compromissoSelecionado.HoraTermino.ToString();
-            if (compromissoSelecionado.Contato != null)
-                comboBoxContatos.SelectedItem = compromissoSelecionado.Contato.Id;
-            else
-                comboBoxContatos.SelectedItem = null;
+            btnExcluir.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -91,6 +68,34 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
         {
             ListarComboBoxCompromissos();
             ListarComboBoxContatos();
+        }
+        #endregion
+
+        #region Métodos Privados
+
+        private void MostrarValoresCompromisso(Compromisso compromissoSelecionado)
+        {
+            if (compromissoSelecionado.Local == "Remoto")
+            {
+                rbLocal.Checked = false;
+                rbLink.Checked = true;
+            }
+            else
+            {
+                rbLocal.Checked = true;
+                rbLink.Checked = false;
+            }
+
+            textBoxAssunto.Text = compromissoSelecionado.Assunto;
+            textBoxLocal.Text = compromissoSelecionado.Local;
+            textBoxLink.Text = compromissoSelecionado.Link;
+            maskedTextBoxData.Text = compromissoSelecionado.Data.ToShortDateString();
+            maskedTextBoxHoraInicio.Text = compromissoSelecionado.HoraInicio.ToString();
+            maskedTextBoxHoraFim.Text = compromissoSelecionado.HoraTermino.ToString();
+            if (compromissoSelecionado.Contato != null)
+                comboBoxContatos.SelectedItem = compromissoSelecionado.Contato.Id;
+            else
+                comboBoxContatos.SelectedItem = null;
         }
 
         private void ListarComboBoxContatos()
@@ -125,5 +130,6 @@ namespace eAgenda.WindowsFormsApp.CompromissoModule
             maskedTextBoxHoraFim.Text = "";
             comboBoxContatos.SelectedIndex = 0;
         }
+        #endregion
     }
 }

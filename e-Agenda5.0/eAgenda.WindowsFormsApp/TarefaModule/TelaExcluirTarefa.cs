@@ -20,6 +20,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,6 +44,7 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 numericUpDownPercentual.Value = tarefaSelecionada.Percentual;
                 maskedTextBoxDataCriacao.Text = tarefaSelecionada.DataCriacao.ToString();
             }
+            btnExcluir.Enabled = true;
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
@@ -68,6 +70,14 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             btnExcluir.Enabled = true;
         }
 
+        private void TelaExcluirTarefa_Load(object sender, EventArgs e)
+        {
+            ListarTarefasComboBox();
+        }
+
+        #endregion
+
+        #region Métodos Privados
         private void LimparCampos()
         {
             textBoxTitulo.Text = "";
@@ -75,11 +85,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
             numericUpDownPercentual.Value = 0;
             maskedTextBoxDataCriacao.Text = "";
             comboBoxTarefas.SelectedIndex = 0;
-        }
-
-        private void TelaExcluirTarefa_Load(object sender, EventArgs e)
-        {
-            ListarTarefasComboBox();
         }
 
         private void ListarTarefasComboBox()
@@ -91,5 +96,6 @@ namespace eAgenda.WindowsFormsApp.TarefaModule
                 comboBoxTarefas.Items.Add(tarefa.Id);
             }
         }
+        #endregion
     }
 }

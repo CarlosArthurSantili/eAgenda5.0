@@ -97,7 +97,9 @@ namespace eAgenda.WindowsFormsApp
             this.Controls.Add(this.btnContatos);
             this.Controls.Add(this.btnTarefas);
             this.Controls.Add(this.labelEAgenda);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaMenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";

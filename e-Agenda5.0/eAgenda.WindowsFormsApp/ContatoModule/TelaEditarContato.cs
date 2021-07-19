@@ -20,6 +20,7 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             InitializeComponent();
         }
 
+        #region Eventos
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,6 +55,15 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             }
         }
 
+        private void TelaEditarContato_Load(object sender, EventArgs e)
+        {
+            ListarComboBoxContatos();
+        }
+
+        #endregion
+
+
+        #region Métodos Privados
         private void ObterValoresContato(Contato contatoSelecionado)
         {
             contatoSelecionado.Nome = textBoxNome.Text;
@@ -72,11 +82,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             textBoxCargo.Text = "";
         }
 
-        private void TelaEditarContato_Load(object sender, EventArgs e)
-        {
-            ListarComboBoxContatos();
-        }
-
         private void ListarComboBoxContatos()
         {
             comboBoxContatos.Items.Clear();
@@ -92,6 +97,7 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             int idContatoSelecionado = Convert.ToInt32(comboBoxContatos.SelectedItem);
             Contato contatoSelecionado = controladorContato.SelecionarPorId(idContatoSelecionado);
             MostrarValoresContato(contatoSelecionado);
+            btnEditar.Enabled = true;
         }
 
         private void MostrarValoresContato(Contato contatoSelecionado)
@@ -102,5 +108,6 @@ namespace eAgenda.WindowsFormsApp.ContatoModule
             textBoxEmpresa.Text = contatoSelecionado.Empresa;
             textBoxCargo.Text = contatoSelecionado.Cargo;
         }
+        #endregion
     }
 }
